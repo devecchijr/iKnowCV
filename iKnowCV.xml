@@ -1,5 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Export generator="Cache" version="25" zv="Cache for Windows (x86-32) 2015.2 (Build 653U)" ts="2016-02-12 18:47:39">
+<Export generator="Cache" version="25" zv="Cache for Windows (x86-32) 2015.2 (Build 653U)" ts="2016-02-12 21:28:08">
+<Class name="Custom.BRSC.HS.UI.ViewerUtil">
+<Description>
+Utilities for the main viewer</Description>
+<TimeChanged>63960,77090.750332</TimeChanged>
+<TimeCreated>63219,22148.216883</TimeCreated>
+
+<UDLText name="T">
+<Content><![CDATA[
+// ##class(Custom.BRSC.HS.UI.ViewerUtil).DocAnalysisUrl($Get(%request.Data("PatientID",1)))
+
+]]></Content>
+</UDLText>
+
+<Method name="DocAnalysisUrl">
+<ClassMethod>1</ClassMethod>
+<FormalSpec>pPatientID:%String,pPort:%String</FormalSpec>
+<ReturnType>%String</ReturnType>
+<Implementation><![CDATA[
+ 	if pPatientID="" set pPatientID="0"
+ 	set tMPIID = ""
+ 	set tID = pPatientID
+ 	&SQL(SELECT top 1 REPLACE(PAPER_ForeignId,',' ,'') into :tMPIID FROM SQLUser.PA_Person where PAPER_RowId = :tID)
+	set baseURL="http://"_##class(%SYSTEM.INetInfo).HostNameToAddr(##class(%SYSTEM.INetInfo).LocalHostName())_":"_pPort_"/csp/healthshare/hsaccess/iknow/iknow.CSP?CacheUserName=_system&CachePassword=sys&patientId="_tMPIID_"#/"
+	set filter = ":[PATIENTID].[H1].[PATIENTID].&["_tMPIID_"]"
+	set UTF8db=$ZCONVERT(filter,"O","UTF8")
+	set escapeddb=$ZCONVERT(UTF8db,"O","URL")
+	set pURL=baseURL_escapeddb
+	
+	quit pURL
+]]></Implementation>
+</Method>
+
+<Method name="AnalysisUrl">
+<Description>
+Returns the iKnow Analysis page for this user</Description>
+<ClassMethod>1</ClassMethod>
+<FormalSpec>pPatientID:%String=""</FormalSpec>
+<Implementation><![CDATA[	quit "http://localhost:57772/csp/healthshare/analytics/_DeepSee.UI.Analyzer.zen?$NAMESPACE=ANALYTICS&PIVOT=InterSystems%2FPatient%20Populations%2FDiabetes%2FDiabetes%20Compliance%20By%20Provider.pivot"
+]]></Implementation>
+</Method>
+
+<Method name="GPSummaryUrl">
+<Description>
+Returns the GPSummary page for this user</Description>
+<ClassMethod>1</ClassMethod>
+<FormalSpec>pPatientID:%String=""</FormalSpec>
+<Implementation><![CDATA[	quit "http://localhost:57772/csp/healthshare/hsaccess/SDHC.HealthShare.UI.MiGSummary.cls?pid="_pPatientID
+]]></Implementation>
+</Method>
+</Class>
+
+
 <Class name="Custom.BRSC.iknow.ClinicalNotes">
 <Super>%Persistent,%XML.Adaptor</Super>
 <TimeChanged>63806,42556.228093</TimeChanged>
@@ -23717,7 +23769,7 @@ if(a!==null)this.drillToNode(a.id),a.id===""?this.drillUpButton=this.drillUpButt
 })(this);]]></CSP>
 
 
-<Project name="iKnowCV" LastModified="2016-02-12 15:12:34.382521">
+<Project name="iKnowCV" LastModified="2016-02-12 21:12:49.594375">
   <Items>
     <ProjectItem name="csp/healthshare/hsaccess/iknow/iknow.CSP" type="CSP"></ProjectItem>
     <ProjectItem name="csp/healthshare/hsaccess/iknow/iknow.css" type="CSP"></ProjectItem>
@@ -23773,6 +23825,7 @@ if(a!==null)this.drillToNode(a.id),a.id===""?this.drillUpButton=this.drillUpButt
     <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/bootstrap/css/bootstrap.css.map" type="CSP"></ProjectItem>
     <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/bootstrap/css/bootstrapSpacelab.min.css" type="CSP"></ProjectItem>
     <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/bootstrap/css/bootstrapSuperhero.min.css" type="CSP"></ProjectItem>
+    <ProjectItem name="Custom.BRSC.HS.UI.ViewerUtil" type="CLS"></ProjectItem>
   </Items>
 </Project>
 </Export>
