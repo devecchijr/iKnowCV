@@ -1,0 +1,13 @@
+.lightgray {
+  background-color: lightgray;
+}
+.negation {
+	color: red;
+}
+.term {
+	color: green;
+	font-weight:bold;
+}
+.sentence {
+	font-weight:bold;
+}
