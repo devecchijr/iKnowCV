@@ -9,7 +9,7 @@ Part of these steps and content of Marla Gonzalez's SDA was gotten from Tom Spen
 Step 1 
 On studio, Import iKnowCV.XML
 
-Step 2 - Configure Web Applications (WEBAPP_1.jpg). HSACCESS was already created but you can enable DeepSee and iKnow. iKnowCV is for Rest Service.
+Step 2 - Configure Web Applications (WEBAPP_1.jpg). HSACCESS was already created but you can enable DeepSee and iKnow. iKnowCV is for Rest Service hosting.
 
 Step 3 - Setup HealthShare and Load Marla's documents 
 The basis for the demo is a standard HealthShare install. I usually use a BusDemo install. Basically get the clinician viewer working correctly. You can use this basic demo with any and all patients. After that you can load Marla Gonzales SDA (SDAMARLA.xml) to HS by copying to HSDirectory>\Data\HSEDGE1\SDAIn
