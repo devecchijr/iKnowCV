@@ -1,5 +1,7 @@
 # iKnowCV
 
+Demo that shows iKnow within HealthShare Clinical Viewer, giving Fast Insights based on a bunch of non structure clinical documents data, offering an interesting user experience and proving some fancy frameworks (ex: highcharts, bootstrap, angularjs, REST services hosted by Cache, etc)
+
 Part of these steps and content of Marla Gonzalez's SDA was gotten from Tom Spencer's Demo available in http://twiki.iscinternal.com/twiki/bin/view/ISC/HealthShareUKClinicalNotesIKnowDemo. Thank you Tom!
 
 # Setting up
