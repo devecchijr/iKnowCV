@@ -17,6 +17,7 @@ Step 3 - Configure Web Applications ([See WebAPP](WEBAPP.jpeg)). HSACCESS was al
 Step 4 -  Like Spencer's demo, the data showed is based on a Cube. In a more real cenario, is possible to think in extend analytics (HS Insight) Document Cube and place the Rest Services there. So far, to load Marla's data to Cube you have to load her data into Clinical Viewer Page (Trakcare tables cache) by search page and run a method for Cube's table feeding. It also can be done in other patients. 
 
 > Do ##Class(Custom.BRSC.iknow.ClinicalNotes).InsertCache()
+
 > Do ##class(%DeepSee.Utils).%BuildCube("Clinical Notes")
 
 
