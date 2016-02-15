@@ -7,7 +7,7 @@ Demo that shows iKnow within HealthShare Clinical Viewer, giving Fast Insights b
 Part of these steps and content of Marla Gonzalez's SDA was gotten from Tom Spencer's Demo available in http://twiki.iscinternal.com/twiki/bin/view/ISC/HealthShareUKClinicalNotesIKnowDemo. Thank you Tom!
 
 Step 1 
-On studio, Import iKnowCV.XML
+On studio, Import iKnowCV.XML (namespace HSACCESS)
 
 Step 2 - Configure Web Applications (WEBAPP_1.jpg). HSACCESS was already created but you can enable DeepSee and iKnow. iKnowCV is for Rest Service hosting.
 
