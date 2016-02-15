@@ -6,13 +6,13 @@ Demo that shows iKnow within HealthShare Clinical Viewer, giving Fast Insights b
 
 Part of these steps and content of Marla Gonzalez's SDA was gotten from Tom Spencer's Demo available in http://twiki.iscinternal.com/twiki/bin/view/ISC/HealthShareUKClinicalNotesIKnowDemo. Thank you Tom!
 
-Step 1 
+Step 1 - Setup HealthShare and Load Marla's documents 
+The basis for the demo is a standard HealthShare install. I usually use a BusDemo install. Basically get the clinician viewer working correctly. You can use this basic demo with any and all patients. After that you can load Marla Gonzales SDA (SDAMARLA.xml) to HS by copying to HSDirectory>\Data\HSEDGE1\SDAIn
+
+Step 2 
 On studio, Import iKnowCV.XML (namespace HSACCESS)
 
-Step 2 - Configure Web Applications (WEBAPP_1.jpg). HSACCESS was already created but you can enable DeepSee and iKnow. iKnowCV is for Rest Service hosting.
-
-Step 3 - Setup HealthShare and Load Marla's documents 
-The basis for the demo is a standard HealthShare install. I usually use a BusDemo install. Basically get the clinician viewer working correctly. You can use this basic demo with any and all patients. After that you can load Marla Gonzales SDA (SDAMARLA.xml) to HS by copying to HSDirectory>\Data\HSEDGE1\SDAIn
+Step 3 - Configure Web Applications (WEBAPP_1.jpg). HSACCESS was already created but you can enable DeepSee and iKnow. iKnowCV is for Rest Service hosting.
 
 Step 4 -  Like Spencer's demo, the data showed is based on a Cube. In a more real cenario, is possible to think in extend analytics (HS Insight) Document Cube and place the Rest Services there. So far, to load Marla's data to Cube you have to load her data into Clinical Viewer Page (Trakcare tables cache) by search page and run a method for Cube's table feeding. It also can be done in other patients. 
 
