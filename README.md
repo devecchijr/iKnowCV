@@ -12,8 +12,7 @@ The basis for the demo is a standard HealthShare install. I usually use a BusDem
 Step 2 
 On studio, Import iKnowCV.XML (namespace HSACCESS)
 
-Step 3 - Configure Web Applications ([See WebAPP](WEBAPP.jpeg)). HSACCESS was already created but you can enable DeepSee and iKnow. iKnowCV is for Rest Service hosting.
-
+Step 3 - Configure Web Applications ([See WebAPP](/blob/master/WEBAPP.jpeg)). HSACCESS was already created but you can enable DeepSee and iKnow. iKnowCV is for Rest Service hosting.
 
 Step 4 -  Like Spencer's demo, the data showed is based on a Cube. In a more real cenario, is possible to think in extend analytics (HS Insight) Document Cube and place the Rest Services there. So far, to load Marla's data to Cube you have to load her data into Clinical Viewer Page (Trakcare tables cache) by search page and run a method for Cube's table feeding. It also can be done in other patients. 
 
