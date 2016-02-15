@@ -30,16 +30,16 @@ So all we need now is to configure the actual viewer so it displays a custom Pag
 
 The first is to load in (or create) a utility class into the HSACCESS namespace. We are going to tell HealthShare that this class will provide the URL for our custom tab. I've done this in  ViewerUtil class. I have a few URLs for some other custom tabs, but the one that matters is the DocAnalysisUrl method. You will note that I just return the same URL regardless of the patient, but you could vary this based on the patient quite easily. Also my URL returned is based on the Clinical Notes being setup in HSACCESS, if you have placed this in another namespace you need to vary this URL accordingly.
 
-The second is to configure the viewer (change port if needed):
+The second is to configure the viewer 
 
-    Log in to Trak (http://localhost:57772/csp/healthshare/HSAccess/web/Default.htm, adjusting host/port)
+    Log in to Trak (http://localhost:57772/csp/healthshare/HSAccess/web/Default.htm, adjusting host/port) 
     Log in to Trak as hs/demo (if asked log into HealthShare/Caché as _system or similar)
     Click on Tools (Hammer)
     Click on Clinical Setup > Charts > New
     Call the chart 'Document Explorer' (or something else if you prefer) and you can give it a short name as desired
-    Enter in a Custom Chart Expression: 
-    	 ##class(Custom.BRSC.HS.UI.ViewerUtil).DocAnalysisUrl($Get(%request.Data("PatientID",1)),57772) 
-    
+    Enter in a Custom Chart Expression: (ajust port)
+    	 ##class(Custom.BRSC.HS.UI.ViewerUtil).DocAnalysisUrl($Get(%request.Data("PatientID",1)),57772)
+
     Hit apply and save this chart.
     Click on Clinical Setup > Chart Book Definition > Find
     Select HS-Doctor (to add it to the main clinician view, i.e. users with 'clinician' ticked)
