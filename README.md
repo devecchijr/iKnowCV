@@ -22,13 +22,15 @@ Step 4 -  Like Spencer's demo, the data showed is based on a Cube. In a more rea
 
 So far you can test iknow page (http://localhost:port/csp/healthshare/hsaccess/iknow/iknow.CSP) without HS and Clinical Viewer. With no URL parameter it will be shown all the Cube's Data.
 
+Obs: This page authenticates on Rest Service using the basic _system/sys user password. To use another user/pwd is needed to change Authorization settings in iknow.js) in seetings area.
+
 Step 5 - Configure the Viewer
 
 So all we need now is to configure the actual viewer so it displays a custom Page as a tab in the clinician viewer. This is done in two steps.
 
 The first is to load in (or create) a utility class into the HSACCESS namespace. We are going to tell HealthShare that this class will provide the URL for our custom tab. I've done this in  ViewerUtil class. I have a few URLs for some other custom tabs, but the one that matters is the DocAnalysisUrl method. You will note that I just return the same URL regardless of the patient, but you could vary this based on the patient quite easily. Also my URL returned is based on the Clinical Notes being setup in HSACCESS, if you have placed this in another namespace you need to vary this URL accordingly.
 
-The second is to configure the viewer:
+The second is to configure the viewer (change port if needed):
 
     Log in to Trak (http://localhost:57772/csp/healthshare/HSAccess/web/Default.htm, adjusting host/port)
     Log in to Trak as hs/demo (if asked log into HealthShare/Caché as _system or similar)
