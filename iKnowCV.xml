@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Export generator="Cache" version="25" zv="Cache for Windows (x86-32) 2015.2 (Build 653U)" ts="2016-02-12 21:28:08">
+<Export generator="Cache" version="25" zv="Cache for Windows (x86-32) 2015.2 (Build 653U)" ts="2016-02-15 13:25:44">
 <Class name="Custom.BRSC.HS.UI.ViewerUtil">
 <Description>
 Utilities for the main viewer</Description>
@@ -54,7 +54,7 @@ Returns the GPSummary page for this user</Description>
 
 <Class name="Custom.BRSC.iknow.ClinicalNotes">
 <Super>%Persistent,%XML.Adaptor</Super>
-<TimeChanged>63806,42556.228093</TimeChanged>
+<TimeChanged>63963,48334.866849</TimeChanged>
 <TimeCreated>63773,25709.190736</TimeCreated>
 
 <Property name="PatientID">
@@ -120,13 +120,11 @@ The clinical notes</Description>
 	Set tSC = $$$OK
 	Try
 	{
-		/*
 		&SQL(Insert into Custom_BRSC_iknow.ClinicalNotes 
 		(PatientID, DocumentNumber, EventDate, Type, Facility, DoctorName, Purpose, Notes)
 		Select b.MPIID, a.DocumentNumber, TO_CHAR(DocumentTime_Date,'DD/MM/YYYY') DocumentDate, DocumentType, EnteredAt_Code, Clinician_Name, DocumentName, NoteText 
 		from HSView.Documents a, HSView.Patients b 
 		where a.Patient_Id = b.Patient_Id and (Select top 1 1 from Custom_BRSC_iknow.ClinicalNotes n where n.PatientId = b.MPIID and n.DocumentNumber = a.DocumentNumber) <> 1 )
-		*/
 		
 		SET myquery="SELECT ID FROM Custom_BRSC_iknow.ClinicalNotes"
 		SET tStatement = ##class(%SQL.Statement).%New()
@@ -23769,8 +23767,12 @@ if(a!==null)this.drillToNode(a.id),a.id===""?this.drillUpButton=this.drillUpButt
 })(this);]]></CSP>
 
 
-<Project name="iKnowCV" LastModified="2016-02-12 21:12:49.594375">
+<Project name="iKnowCV" LastModified="2016-02-12 21:12:49.590381">
   <Items>
+    <ProjectItem name="Custom.BRSC.HS.UI.ViewerUtil" type="CLS"></ProjectItem>
+    <ProjectItem name="Custom.BRSC.iknow.ClinicalNotes" type="CLS"></ProjectItem>
+    <ProjectItem name="Custom.iKnow.Cube.ClinicalNotes" type="CLS"></ProjectItem>
+    <ProjectItem name="Custom.iKnow.RestService" type="CLS"></ProjectItem>
     <ProjectItem name="csp/healthshare/hsaccess/iknow/iknow.CSP" type="CSP"></ProjectItem>
     <ProjectItem name="csp/healthshare/hsaccess/iknow/iknow.css" type="CSP"></ProjectItem>
     <ProjectItem name="csp/healthshare/hsaccess/iknow/iknow.js" type="CSP"></ProjectItem>
@@ -23784,22 +23786,30 @@ if(a!==null)this.drillToNode(a.id),a.id===""?this.drillUpButton=this.drillUpButt
     <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/angular-sanitize.min.js.map" type="CSP"></ProjectItem>
     <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/angular.min.js" type="CSP"></ProjectItem>
     <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/angular.min.js.map" type="CSP"></ProjectItem>
-    <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/jquery-1.9.0.min.js" type="CSP"></ProjectItem>
-    <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/jquery.min.map" type="CSP"></ProjectItem>
+    <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/bootstrap/css/bootstrap-theme.css" type="CSP"></ProjectItem>
+    <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/bootstrap/css/bootstrap-theme.css.map" type="CSP"></ProjectItem>
+    <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/bootstrap/css/bootstrap-theme.min.css" type="CSP"></ProjectItem>
+    <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/bootstrap/css/bootstrap.css" type="CSP"></ProjectItem>
+    <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/bootstrap/css/bootstrap.css.map" type="CSP"></ProjectItem>
     <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/bootstrap/css/bootstrap.min.css" type="CSP"></ProjectItem>
+    <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/bootstrap/css/bootstrapSpacelab.min.css" type="CSP"></ProjectItem>
+    <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/bootstrap/css/bootstrapSuperhero.min.css" type="CSP"></ProjectItem>
+    <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/bootstrap/fonts/glyphicons-halflings-regular.eot" type="CSP"></ProjectItem>
+    <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/bootstrap/fonts/glyphicons-halflings-regular.svg" type="CSP"></ProjectItem>
+    <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/bootstrap/fonts/glyphicons-halflings-regular.ttf" type="CSP"></ProjectItem>
+    <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/bootstrap/fonts/glyphicons-halflings-regular.woff" type="CSP"></ProjectItem>
     <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/bootstrap/js/bootstrap.min.js" type="CSP"></ProjectItem>
-    <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/highcharts/js/highcharts.js" type="CSP"></ProjectItem>
     <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/highcharts/js/highcharts-more.js" type="CSP"></ProjectItem>
-    <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/highcharts/js/modules/exporting.js" type="CSP"></ProjectItem>
-    <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/highcharts/js/modules/data.js" type="CSP"></ProjectItem>
-    <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/linqjs/linq.js" type="CSP"></ProjectItem>
+    <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/highcharts/js/highcharts.js" type="CSP"></ProjectItem>
     <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/highcharts/js/modules/broken-axis.js" type="CSP"></ProjectItem>
     <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/highcharts/js/modules/broken-axis.src.js" type="CSP"></ProjectItem>
     <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/highcharts/js/modules/canvas-tools.js" type="CSP"></ProjectItem>
     <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/highcharts/js/modules/canvas-tools.src.js" type="CSP"></ProjectItem>
+    <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/highcharts/js/modules/data.js" type="CSP"></ProjectItem>
     <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/highcharts/js/modules/data.src.js" type="CSP"></ProjectItem>
     <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/highcharts/js/modules/drilldown.js" type="CSP"></ProjectItem>
     <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/highcharts/js/modules/drilldown.src.js" type="CSP"></ProjectItem>
+    <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/highcharts/js/modules/exporting.js" type="CSP"></ProjectItem>
     <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/highcharts/js/modules/exporting.src.js" type="CSP"></ProjectItem>
     <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/highcharts/js/modules/funnel.js" type="CSP"></ProjectItem>
     <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/highcharts/js/modules/funnel.src.js" type="CSP"></ProjectItem>
@@ -23811,21 +23821,9 @@ if(a!==null)this.drillToNode(a.id),a.id===""?this.drillUpButton=this.drillUpButt
     <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/highcharts/js/modules/solid-gauge.src.js" type="CSP"></ProjectItem>
     <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/highcharts/js/modules/treemap.js" type="CSP"></ProjectItem>
     <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/highcharts/js/modules/treemap.src.js" type="CSP"></ProjectItem>
-    <ProjectItem name="Custom.BRSC.iknow.ClinicalNotes" type="CLS"></ProjectItem>
-    <ProjectItem name="Custom.iKnow.Cube.ClinicalNotes" type="CLS"></ProjectItem>
-    <ProjectItem name="Custom.iKnow.RestService" type="CLS"></ProjectItem>
-    <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/bootstrap/fonts/glyphicons-halflings-regular.eot" type="CSP"></ProjectItem>
-    <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/bootstrap/fonts/glyphicons-halflings-regular.svg" type="CSP"></ProjectItem>
-    <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/bootstrap/fonts/glyphicons-halflings-regular.ttf" type="CSP"></ProjectItem>
-    <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/bootstrap/fonts/glyphicons-halflings-regular.woff" type="CSP"></ProjectItem>
-    <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/bootstrap/css/bootstrap-theme.css" type="CSP"></ProjectItem>
-    <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/bootstrap/css/bootstrap-theme.css.map" type="CSP"></ProjectItem>
-    <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/bootstrap/css/bootstrap-theme.min.css" type="CSP"></ProjectItem>
-    <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/bootstrap/css/bootstrap.css" type="CSP"></ProjectItem>
-    <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/bootstrap/css/bootstrap.css.map" type="CSP"></ProjectItem>
-    <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/bootstrap/css/bootstrapSpacelab.min.css" type="CSP"></ProjectItem>
-    <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/bootstrap/css/bootstrapSuperhero.min.css" type="CSP"></ProjectItem>
-    <ProjectItem name="Custom.BRSC.HS.UI.ViewerUtil" type="CLS"></ProjectItem>
+    <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/jquery-1.9.0.min.js" type="CSP"></ProjectItem>
+    <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/jquery.min.map" type="CSP"></ProjectItem>
+    <ProjectItem name="csp/healthshare/hsaccess/iknow/nglib/linqjs/linq.js" type="CSP"></ProjectItem>
   </Items>
 </Project>
 </Export>
