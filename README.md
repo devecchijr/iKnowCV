@@ -22,7 +22,7 @@ Step 4 -  Like Spencer's demo, the data showed is based on a Cube. In a more rea
 
 So far you can test iknow page (http://localhost:port/csp/healthshare/hsaccess/iknow/iknow.CSP) without HS and Clinical Viewer. With no URL parameter it will be shown all the Cube's Data.
 
-Obs: This page authenticates on Rest Service using the basic _system/sys user password. To use another user/pwd is need to change Authorization settings in iknow.js) in seetings area.
+Obs: This page authenticates on Rest Service using the basic _system/sys user password. To use another user/pwd is need to change Authorization settings in iknow.js in seetings area.
 
 Step 5 - Configure the Viewer
 
