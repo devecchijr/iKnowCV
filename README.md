@@ -1,19 +1,24 @@
 # iKnowCV
 
-Part of these steps and content of Marla Gonzalez's SDA was gotten from Tom Spencer's Demo  available in http://twiki.iscinternal.com/twiki/bin/view/ISC/HealthShareUKClinicalNotesIKnowDemo. Thank you Tom!
+Demo that shows iKnow within HealthShare Clinical Viewer, giving Fast Insights based on a bunch of non structure clinical documents data, offering an interesting user experience and proving some fancy frameworks (ex: highcharts, bootstrap, angularjs, REST services hosted by Cache, etc)
 
 
-Step 1 
-On studio, Import iKnowCV.XML
+Part of these steps and content of Marla Gonzalez's SDA was gotten from Tom Spencer's Demo available in http://twiki.iscinternal.com/twiki/bin/view/ISC/HealthShareUKClinicalNotesIKnowDemo. Thank you Tom!
 
-Step 2 - Configure Web Applications (WEBAPP_1.jpg). HSACCESS was already created but you can enable DeepSee and iKnow. iKnowCV is for Rest Service.
-
-Step 3 - Setup HealthShare and Load Marla's documents 
+Step 1 - Setup HealthShare and Load Marla's documents 
 The basis for the demo is a standard HealthShare install. I usually use a BusDemo install. Basically get the clinician viewer working correctly. You can use this basic demo with any and all patients. After that you can load Marla Gonzales SDA (SDAMARLA.xml) to HS by copying to HSDirectory>\Data\HSEDGE1\SDAIn
+
+Step 2 
+On studio, Import iKnowCV.XML (namespace HSACCESS)
+
+Step 3 - Configure Web Applications ([See WebAPP](WEBAPP.jpeg)). HSACCESS was already created but you can enable DeepSee and iKnow. iKnowCV is for Rest Service hosting.
 
 Step 4 -  Like Spencer's demo, the data showed is based on a Cube. In a more real cenario, is possible to think in extend analytics (HS Insight) Document Cube and place the Rest Services there. So far, to load Marla's data to Cube you have to load her data into Clinical Viewer Page (Trakcare tables cache) by search page and run a method for Cube's table feeding. It also can be done in other patients. 
 
 > Do ##Class(Custom.BRSC.iknow.ClinicalNotes).InsertCache()
+
+> Do ##class(%DeepSee.Utils).%BuildCube("Clinical Notes")
+
 
 So far you can test iknow page (http://localhost:port/csp/healthshare/hsaccess/iknow/iknow.CSP) without HS and Clinical Viewer. With no URL parameter it will be shown all the Cube's Data.
 
@@ -45,3 +50,4 @@ That should then be it and your ready to go.
 
 
 PS: This Demo may works on HS Version 2015.2.0 and above.
+
